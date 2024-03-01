@@ -1,0 +1,32 @@
+/* Importér skrifttyper */
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*----------------Variabler----------------*/
+
+/* Colors */
+$bg-color: #F2EEEB;
+$nav-color: #000000; 
+$footer-color: #F2EEEB;
+$text-color: #000000;
+
+/*----------------Mixins----------------*/
+
+/* Typography */
+@mixin headings {
+    font-family: 'Lora', serif;
+    font-weight: 600; /* Semi bold */
+    text-transform: uppercase; /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */  
+}
+
+@mixin p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 24px; 
+    line-height: 1.5; 
+    
+}
+
+
+
+

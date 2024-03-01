@@ -1,5 +1,41 @@
-* {
+/* Variabler */
+/* General styling */
+body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "roboto, sans serif";
+  background-color: #F2EEEB;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 400; /* Regular */
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600; /* Semi bold */
+  font-family: "lora";
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.kategorinavne p {
+  font-size: 24px;
+  font-family: "lora";
 }/*# sourceMappingURL=style.css.map */

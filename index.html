@@ -1,13 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Forside - Marie Hollesen</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font - Lora -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora&display=swap">
+    <!-- Font - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+
+    <!-- Brugbart for søgemaskineoptimering (SEO) og brugere -->
+    <meta name="description"
+    content="Marie Hollesen er et multimediebureau, som arbejder med grafisk design, webdesign, branding og SEO.">
+   
 </head>
+
 <body>
-    <img src="pics/trustpilot - anmeldelser.png">
-    <p>Test ændring</p>
+    <!-- Navigation i headeren -->
+    <header>
+        <!-- Hamburgermenu-->
+        <!-- Mobile navigation-->
+        <div class="logo">
+            <a href="index.html">
+                <img src="pics/logo/logo mh.png" alt="Logo med navigation til forsiden"></a>
+        </div>
+
+        <nav>
+            <!-- Primær navigation -->
+            <button class="fa-solid fa-bars" aria-label="Åbn menu"></button>
+
+            <!-- Kategorier i header -->
+            <ul role="menubar" aria-label="Kategorier"> <!-- Screen readers vil, ud fra "role="menubar"", vide. at der er tale om en menubar. Hvert <li>-element får "role="menuitem" til at angive, at det er et element, som hører til indenunder "Kategorier" -->
+                <li role="menuitem"><a href="index.html" alt="Gå til forsiden"><p class="kategorinavne">Forside</p></a></li>
+                <li role="menuitem"><a href="services.html" alt="Gå til kategorien, design"><p class="kategorinavne">Services</p></a></li>
+                <li role="menuitem"><a href="portfolio.html" alt="Gå til kategorien, medier"><p class="kategorinavne">Portfolio</p></a></li>
+                <li role="menuitem"><a href="om.html" alt="Gå til kategorien, responsivitet"><p class="kategorinavne">Om</p></a></li>
+                <li role="menuitem"><a href="kontakt.html" alt="Gå til kategorien empiri"><p class="kategorinavne">Kontakt</p></a></li>
+                <li role="menuitem"><a href="#" alt="Gå til kategorien, Booking"><p class="kategorinavne">Booking</p></a></li>
+            </ul>
+        </nav>
+
+        <p>Test</p>
+
+    </header>
+
+
+
+
+   
+   
 </body>
 </html>
