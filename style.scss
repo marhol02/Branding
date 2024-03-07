@@ -115,8 +115,8 @@ p {
             --bar-width: 60px;
             --bar-height: 8px;
             --hamburger-gap:6px; 
-            --foreground:#527C68;
-            --background:#000000;
+            --foreground:#A59B92;
+            --background:#ffffff;
             --hamburger-margin: 20px;
             --animation-timing: 200ms ease-in-out;
             --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
@@ -139,7 +139,7 @@ p {
         }
 
         .hamburgermenu:has(input:checked) {
-            --foreground: #000000;
+            --foreground: #ffffff;
             
         }
 
@@ -233,7 +233,6 @@ p {
     .hamburgermenu { 
     display: none;
     }
-
     
 } 
 
