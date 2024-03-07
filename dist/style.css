@@ -22,9 +22,11 @@ body {
   font-family: "Lora", serif;
   font-weight: 600;
   color: #000000;
-  text-transform: uppercase; /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */
+  text-transform: uppercase;
+  /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */
   font-family: "Roboto", sans-serif;
-  font-weight: 400; /* Regular */
+  font-weight: 400;
+  /* Regular */
   font-size: 24px;
   line-height: 1.5;
   background-color: #F2EEEB;
@@ -38,7 +40,8 @@ h1, h2, h3, h4 {
   font-family: "Lora", serif;
   font-weight: 600;
   color: #000000;
-  text-transform: uppercase; /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */
+  text-transform: uppercase;
+  /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */
 }
 
 h1 {
@@ -59,7 +62,8 @@ h4 {
 
 p {
   font-family: "Roboto", sans-serif;
-  font-weight: 400; /* Regular */
+  font-weight: 400;
+  /* Regular */
   font-size: 24px;
   line-height: 1.5;
 }
@@ -73,7 +77,6 @@ header {
   top: 0;
   z-index: 4;
   transition: 0.3 ease;
-  max-height: -moz-fit-content;
   max-height: fit-content;
   width: 100%;
   grid-template-columns: 1fr 1fr;
@@ -106,7 +109,8 @@ nav ul {
 
 .kategorinavne {
   font-family: "Lora", serif;
-  font-weight: 700; /* Bold */
+  font-weight: 700;
+  /* Bold */
   color: #000000;
   font-size: 24px;
 }
@@ -138,7 +142,6 @@ nav a:hover {
   display: grid;
   grid-column: 1;
   gap: var(--hamburger-gap);
-  width: -moz-max-content;
   width: max-content;
   position: absolute;
   top: var(--hamburger-margin);
@@ -170,9 +173,7 @@ nav a:hover {
 }
 
 .hamburgermenu input {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   padding: 0;
   margin: 0;
   outline: none;
@@ -182,7 +183,7 @@ nav a:hover {
 .hamburgermenu:has(input:checked)::before {
   rotate: 45deg;
   width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / -2);
+  translate: 0 calc(var(--bar-height) /-2);
 }
 
 .hamburgermenu:has(input:checked)::after {
@@ -231,4 +232,4 @@ nav a:hover {
   .hamburgermenu {
     display: none;
   }
-}/*# sourceMappingURL=style.css.map */
+}

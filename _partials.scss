@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
 /*----------------Variabler----------------*/
 
 /* Colors */
@@ -10,20 +11,40 @@ $nav-color: #000000;
 $footer-color: #F2EEEB;
 $text-color: #000000;
 
+/* Typography */
+$heading-font: 'Lora', serif;
+$heading-weight: 600; /* Semi bold */
+
+$p-font-family: 'Roboto', sans-serif;
+$p-font-weight: 400; /* Regular */
+$p-font-size: 24px; 
+$line-height: 1.5; 
+
+
 /*----------------Mixins----------------*/
 
 /* Typography */
 @mixin headings {
-    font-family: 'Lora', serif;
-    font-weight: 600; /* Semi bold */
-    text-transform: uppercase; /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */  
+    font-family: $heading-font;
+    font-weight: $heading-weight;
+    color: $text-color;
+    text-transform: uppercase;  /* Dét at style med uppercase i CSS og ikke blot skrive stort i HTML, gør at screen readers ikke blot læser de enkelte bogstaver op. F.eks. bliver WEB til W.E.B. når det læses op af en screen reader, men når man styler det i (S)CSS, bliver det til WEB */  
+    
+}
+
+@mixin button-text {
+    font-family: $heading-font;
+    font-weight: 700; /* Bold */
+    color: $text-color;
+    font-size: $p-font-size;
 }
 
 @mixin p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400; /* Regular */
-    font-size: 24px; 
+    font-family: $p-font-family;
+    font-weight: $p-font-weight; /* Regular */
+    font-size: $p-font-size; 
     line-height: 1.5; 
+    
     
 }
 

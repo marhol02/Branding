@@ -1,32 +1,36 @@
 @use "partials";
 
-@import "_partials";
-*{
-    @include partials.headings;
-    @include partials.p;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* General styling */ 
+/* ---------------- General styling ----------------  */
 body {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: $body-font;
-    font-weight: $font-weight;
-    background-color: $bg-color;
+    @include partials.headings;
+    @include partials.p;
+    background-color: partials.$bg-color;
+    display: grid;
+    grid-template-rows: 100px 1fr 70px;
+    text-align: right;
 }
 
 /* Typgraphy */
 h1, h2, h3, h4 {
-    @include headings;
+    @include partials.headings;
 }
 
 h1 {
     font-size: 54px;
 }
+
 h2 {
     font-size: 40px;
 }
+
 h3 {
     font-size: 36px;
 }
@@ -36,78 +40,203 @@ h4 {
 }
 
 p {
-    @include p;
+    @include partials.p;
 }
 
+    /* Header */
 
-.kategorinavne p {
-    font-size: 24px;
-    font-family: "lora";
+    header {
+            height: 8em;
+            display: grid;
+            justify-content: space-between;
+            align-items: center;
+            top:0;
+            z-index: 4;
+            transition: 0.3 ease;
+            max-height: fit-content;
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+        }
 
-}
+    .container-header {
 
-/* Header */ 
-header {
-    background-color: rgb(36, 92, 127,1);
-    height: 8em;
-    padding: 0 4em 0 4em;
-    display: grid; 
-    justify-content: space-between;
-    grid-template-columns: 1fr 60px 0 1fr;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Gør, at headeren vises over andet indhold */
-    transition: 0.3s ease;
-    max-height: fit-content;
-    width: 100%;
-}
+        padding: 0;
+        margin: 0;
+        display: grid;
+        transition: 0.3 ease;
+        
+    }
+    
+        /* Logo */
+        .logo img {
+            padding-top: 15px;
+            max-width: 80px;
+            height: auto;
+            position: absolute;
+    
+        }
 
-header img {
-    width: auto;
-    height: 100%;
-    padding: 10%;
-}
+        
+        /* Navigation i headeren */
+        nav {
+            display: grid;
 
-.logo {
-    grid-column: 2; /* logoet er i kolonne 2 (midten) */
-    max-height: 30px;
-     }
+        }
 
-header li {
+        nav ul {
+            list-style-type: none;
+            text-align: left;
+            
+        }
+
+        .kategorinavne {
+            @include partials.button-text;
+
+
+        
+            
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            padding: 0 10px;
+            transition: color 0.3s ease;
+            
+            &:hover {
+            color: #e2dad1;
+            }
+        }
+
+        
+
+
+        /* Hamburgermenu - https://www.youtube.com/watch?v=dAIVbLrAb_U */
+        :root {
+            --bar-width: 60px;
+            --bar-height: 8px;
+            --hamburger-gap:6px; 
+            --foreground:#527C68;
+            --background:#000000;
+            --hamburger-margin: 20px;
+            --animation-timing: 200ms ease-in-out;
+            --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+        }
+
+        
+        .hamburgermenu {
+            --x-width: calc(var(--hamburger-height)* 1.41421356237);
+            display: grid;
+            grid-column: 1;
+            gap: var(--hamburger-gap);
+            width: max-content;
+            position:absolute;
+            top:var(--hamburger-margin);
+            left: var(--hamburger-margin);
+            z-index: 50;
+            cursor: pointer;
+            
+            
+        }
+
+        .hamburgermenu:has(input:checked) {
+            --foreground: #000000;
+            
+        }
+
+        .hamburgermenu:has(input:focus-visible)::before,
+        .hamburgermenu:has(input:focus-visible)::after,
+        .hamburgermenu input:focus-visible {
+            border: 1px solid var(--background);
+            box-shadow: 0 0 0 1px var(--foreground);
+        } 
+
+
+        .hamburgermenu::before,
+        .hamburgermenu::after,
+        .hamburgermenu input {
+            content: "";
+            width: var(--bar-width);
+            height: var(--bar-height);
+            background-color:var(--foreground);
+            transform-origin: left center;
+            transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+            
+            
+        }
+
+        .hamburgermenu input {
+            appearance: none;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            pointer-events: none;
+        
+        }
+
+        .hamburgermenu:has(input:checked)::before {
+            rotate: 45deg;
+            width: var(--x-width);
+            translate: 0 calc(var(--bar-height) /-2);
+        }
+
+        .hamburgermenu:has(input:checked)::after {
+            rotate: -45deg;
+            width: var(--x-width);
+            translate: 0 calc(var(--bar-height) / 2);
+        
+        }
+            .hamburgermenu input:checked {
+                opacity: 0;
+                width: 0;
+            } 
+
+        .sidebar {
+            transition: translate var(--animation-timing);
+            padding:0.5rem 1rem;
+            translate: -100%;
+            transition: transform var(--animation-timing);
+            transform: translateX(-100%);
+            padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+            background-color: var(--foreground);
+            color: var(--background);
+            max-width: 10rem;
+            min-height: 100vh;
+            z-index: 10;
+            line-height: 125%;
+        
+        }
+        
+        .hamburgermenu:has(input:checked) + .sidebar {
+            transform: translateX(0);
+            translate: 0;
+        }
+        
+        .hamburgermenu input:checked + .sidebar {
+            display: none;
+        }
+
+        .aside {
+            margin: 0;
+        }
+          
+     
    
-    position: relative;
-    padding-left: 1em;
-    padding-right: 1em;
+
+
+        
+/* Media queries */
+@media only screen and (min-width: 800px) {
+
+    /* Header */
+
+    /* Hamburgermenu */
+    .hamburgermenu { 
+    display: none;
+    }
+
+    
 } 
 
-header li a {
-    color: #ffff;
-    text-decoration: none;
-    justify-content: space-around;
-    position: relative;
-    transition: 0.3s ease;
-    white-space: nowrap;
-}
 
-nav ul {
-    display: none;
-    color: white;
-    flex-direction: column;    
-}
 
-header .fa-solid.fa-bars {
-    font-size: 2em;
-    background-color: transparent; 
-    border: none;
-    padding: 10px;
-}
 
-.fa-bars {
-    color: white;
-    font-size: 200%;
-    cursor: pointer;
-    position: absolute;
-    left: 2rem;
-    transform: translateY(-50%);
-}
